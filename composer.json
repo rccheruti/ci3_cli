@@ -1,0 +1,23 @@
+{
+    "name": "rccheruti/ci3-cli",
+    "description": "Ferramenta de linha de comando para CodeIgniter 3, inspirada no Artisan.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "codeigniter",
+        "codeigniter3",
+        "cli",
+        "generator"
+    ],
+    "homepage": "https://github.com/rccheruti/ci3_cli",
+    "support": {
+        "issues": "https://github.com/rccheruti/ci3_cli/issues",
+        "source": "https://github.com/rccheruti/ci3_cli"
+    },
+    "require": {
+        "php": ">=7.4"
+    },
+    "bin": [
+        "bin/ci3"
+    ]
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env php
+<?php
+
+$packageEntryPoint = dirname(__DIR__) . '/ci3.php';
+$manualEntryPoint = __DIR__ . '/ci3.php';
+
+require is_file($packageEntryPoint) ? $packageEntryPoint : $manualEntryPoint;

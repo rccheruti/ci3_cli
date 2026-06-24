@@ -9,8 +9,8 @@
 
 - [Requisitos](#requisitos)
 - [Instalação](#instalação)
-  - [Linux / macOS](#linux--macos)
-  - [Windows](#windows)
+  - [Composer (recomendado)](#composer-recomendado)
+  - [Instalação manual](#instalação-manual)
 - [Detecção automática do projeto](#detecção-automática-do-projeto)
 - [Comandos](#comandos)
   - [make:controller](#makecontroller)
@@ -41,14 +41,57 @@ PHP precisa estar disponível no terminal (`php -v` deve funcionar).
 
 ## Instalação
 
-### Linux / macOS
+### Composer (recomendado)
 
-**1. Baixe o arquivo `ci3`**
-
-**2. Mova para um diretório no PATH e dê permissão de execução:**
+Instale globalmente para disponibilizar o comando `ci3` em todos os projetos:
 
 ```bash
-sudo mv ci3 /usr/local/bin/ci3
+composer global require rccheruti/ci3-cli
+```
+
+Descubra o diretório global de executáveis do Composer:
+
+```bash
+composer global config bin-dir --absolute
+```
+
+Esse diretório precisa estar no `PATH` do sistema. Em instalações comuns, ele fica em:
+
+```text
+# Linux / macOS
+~/.config/composer/vendor/bin
+
+# Windows
+%APPDATA%\Composer\vendor\bin
+```
+
+Feche e reabra o terminal depois de alterar o `PATH`. Em seguida, verifique a instalação:
+
+```bash
+ci3 help
+```
+
+Para atualizar ou remover:
+
+```bash
+composer global update rccheruti/ci3-cli
+composer global remove rccheruti/ci3-cli
+```
+
+> O PHP, o Composer e o diretório global de executáveis do Composer precisam estar disponíveis no `PATH`.
+
+---
+
+### Instalação manual
+
+#### Linux / macOS
+
+**1. Baixe os arquivos do projeto.**
+
+**2. Crie um launcher executável chamado `ci3` em um diretório do `PATH`:**
+
+```bash
+sudo cp bin/ci3 ci3.php /usr/local/bin/
 sudo chmod +x /usr/local/bin/ci3
 ```
 
@@ -56,7 +99,7 @@ Ou sem sudo, usando `~/.local/bin/`:
 
 ```bash
 mkdir -p ~/.local/bin
-mv ci3 ~/.local/bin/ci3
+cp bin/ci3 ci3.php ~/.local/bin/
 chmod +x ~/.local/bin/ci3
 
 # Adiciona ao PATH se ainda não estiver
@@ -69,9 +112,7 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && source ~/.bashrc
 ci3 help
 ```
 
----
-
-### Windows
+#### Windows
 
 São necessários **dois arquivos**: `ci3.bat` e `ci3.php`.
 
